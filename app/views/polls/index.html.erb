@@ -4,8 +4,9 @@
   <dl class = 'dl-horizontal'>
     <dt><%= poll.title %></dt>
      <dd> <%= link_to 'Show', poll %> | 
-      <%= link_to 'Edit', edit_poll_path(poll) %> | 
-      <%= link_to 'Destroy', poll, method: :delete, data: { confirm: 'Are you sure?' } %>
+      <%= link_to 'Edit', edit_poll_path(poll.edit_url) %> | 
+      <%= link_to 'Destroy', poll, method: :delete, data: { confirm: 'Are you sure?' } %> |
+      <%= link_to 'Short Url', poll.edit_url%>
     </dd>
   </dl>
 <% end %>

@@ -9,16 +9,17 @@ class PollsController < ApplicationController
   def create
     @poll = Poll.new(params[:poll])
     if @poll.save
-      redirect_to edit_poll_path(@poll)
+      redirect_to edit_poll_path(@poll.edit_url)
     end
   end
 
   def new
     @poll = Poll.new
+    @poll.edit_url = params[:edit_url]
   end
 
   def edit 
-    @poll = Poll.find(params[:id])
+    @poll = Poll.find_by_edit_url(params[:id])
   end
 
   def update

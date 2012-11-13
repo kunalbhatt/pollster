@@ -7,10 +7,12 @@ Pollster::Application.routes.draw do
     resources :answers 
   end
 
+
+
 root :to => 'polls#index'
 
-match "polls/edit/:code" => "polls#edit"
-match "polls/shared/:code" => "polls#show"
+# match "polls/:edit_url/edit" => "polls#edit"
+# match "/:short_url" => "polls#show"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

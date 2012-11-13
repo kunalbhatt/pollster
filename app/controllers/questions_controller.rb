@@ -2,6 +2,7 @@ class QuestionsController < ApplicationController
 
   def create
     @poll = Poll.find(params[:poll_id])
+    # @poll = @poll.edit_url
     @question = @poll.questions.build(params[:question])
 
 
@@ -10,7 +11,7 @@ class QuestionsController < ApplicationController
     # @poll = @question.poll_id
     # raise @poll.inspect
     if @question.save
-      redirect_to edit_poll_path(@poll)
+      redirect_to edit_poll_path(@poll.edit_url)
     end
   end
 
