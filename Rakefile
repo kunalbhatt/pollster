@@ -5,3 +5,5 @@
 require File.expand_path('../config/application', __FILE__)
 
 Pollster::Application.load_tasks
+
+task "db:recreate" => ["db:drop", "db:create", "db:migrate"]

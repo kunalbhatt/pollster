@@ -1,4 +1,16 @@
 Pollster::Application.routes.draw do
+  resources :polls do 
+    resources :questions 
+  end
+
+  resources :questions do 
+    resources :answers 
+  end
+
+root :to => 'polls#index'
+
+match "polls/edit/:code" => "polls#edit"
+match "polls/shared/:code" => "polls#show"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

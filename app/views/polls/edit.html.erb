@@ -1,0 +1,19 @@
+<h2>Editing Poll</h2>
+
+<table>
+  <tr>
+    <td><%= @poll.title %></td>
+  </tr>
+  <% @poll.questions.each do |question| %>
+    <tr>
+      <td>
+        <%= question.description %>
+      </td>
+    </tr>
+    <%end%>
+</table>
+
+<div class = 'row'>
+    <h2>Question</h2>
+    <%= render 'questions/form' %>
+</div>
