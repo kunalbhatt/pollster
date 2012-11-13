@@ -19,7 +19,7 @@ class PollsController < ApplicationController
   end
 
   def edit 
-    @poll = Poll.find_by_edit_url(params[:id])
+    # @poll = Poll.find_by_edit_url(params[:id])
   end
 
   def update
@@ -27,9 +27,13 @@ class PollsController < ApplicationController
   end
 
   def show
+
   end
 
   def destroy
+    @poll.destroy
+
+    redirect_to polls_url
   end
 
 
@@ -37,7 +41,7 @@ class PollsController < ApplicationController
 private 
 
   def find_poll
-    @poll = Poll.find_by_id(params[:id])
+    @poll = Poll.find_by_edit_url(params[:id])
   end
 
 end
