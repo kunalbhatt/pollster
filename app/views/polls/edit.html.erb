@@ -8,6 +8,7 @@
     <tr>
       <td>
         <%= question.description %>
+        <%= link_to 'Destroy', question_path(question.id), class: 'btn btn-primary', method: :delete, data: { confirm: 'Are you sure?' } %>
       </td>
     </tr>
     <%end%>

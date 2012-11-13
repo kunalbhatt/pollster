@@ -1,12 +1,25 @@
-<h1>Polls</h1>
+<h1>Pollster</h1>
 
 <% @polls.each do |poll| %>
-  <dl class = 'dl-horizontal'>
-    <dt><%= poll.title %></dt>
-     <dd> <%= link_to 'Show', poll_path(poll.edit_url) %> | 
-      <%= link_to 'Edit', edit_poll_path(poll.edit_url) %> | 
-      <%= link_to 'Destroy', poll_path(poll.edit_url), method: :delete, data: { confirm: 'Are you sure?' } %> |
-      <%= link_to 'Short Url', data: {confirm: "#{poll.edit_url}"} %>
-    </dd>
-  </dl>
+<table class="table">
+  <thead>
+    <tr>
+      <th>
+        Title
+      </th>
+    </tr>
+    <tbody>
+      <tr>
+        <td><%= poll.title %></td>
+        <td>
+          <%= link_to 'Show', poll_path(poll.edit_url) %> | 
+          <%= link_to 'Edit', edit_poll_path(poll.edit_url) %> | 
+          <%= link_to 'Destroy', poll_path(poll.edit_url), method: :delete, data: { confirm: 'Are you sure?' } %> |
+          <%= link_to 'Short Url', poll_path(poll.edit_url) %>
+        </td>
+      </tr>
+    </tbody>
+  </thead>
+</table>
+    
 <% end %>
