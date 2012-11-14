@@ -1,17 +1,32 @@
-<h2>Editing Poll</h2>
+<h2>Editing Poll - edit the poll by clicking on it's descriptions</h2>
 
-<table>
-  <tr>
-    <td><%= @poll.title %></td>
-  </tr>
-  <% @poll.questions.each do |question| %>
+<table class = "table">
+  <thead>
     <tr>
+      <th>
+        Title
+      </th>
+      <th>
+        Question
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class = "lead"><%= best_in_place @poll, :title %></td>
       <td>
-        <%= question.description %>
-        <%= link_to 'Destroy', question_path(question.id), class: 'btn btn-primary', method: :delete, data: { confirm: 'Are you sure?' } %>
+        <% @poll.questions.each do |question| %>
+        <div class="well">
+          <%= best_in_place question, :description, remote: :true %>
+          
+          <%= link_to 'Destroy', question_path(question.id), class: 'btn btn-mini btn-primary', method: :delete, data: { confirm: 'Are you sure?'} %>
+          <%= link_to 'Answers',  question_answers_path(question.id) + ".csv", class: 'btn btn-mini btn-primary'%>
+        </div>  
+        
+      <%end%>      
       </td>
     </tr>
-    <%end%>
+  </tbody>
 </table>
 
 <div class = 'row'>

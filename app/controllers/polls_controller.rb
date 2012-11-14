@@ -1,6 +1,6 @@
 class PollsController < ApplicationController
 
-  before_filter :find_poll
+  before_filter :find_poll, :except => :show
 
   def index
     @polls = Poll.all
@@ -27,7 +27,7 @@ class PollsController < ApplicationController
   end
 
   def show
-
+    @poll = Poll.find_by_share_url(params[:id])
   end
 
   def destroy

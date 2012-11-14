@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-
+gem "best_in_place"
 gem 'twitter-bootstrap-rails'
 gem "therubyracer"
 gem "less-rails"

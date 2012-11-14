@@ -15,6 +15,16 @@ class QuestionsController < ApplicationController
     end
   end
 
+  def edit
+    @question = Question.find(params[:id])
+    # @question.update_attributes(params[:question])
+  end
+
+  def update
+     @question = Question.find(params[:id])
+     @question.update_attributes(params[:question])
+  end
+
   def destroy
     @question = Question.find(params[:id])
     @question.destroy

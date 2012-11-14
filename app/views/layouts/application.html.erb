@@ -44,7 +44,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="#">Pollster</a>
+          <%= link_to "Pollster", polls_path, :class => 'brand' %>
           <div class="container nav-collapse">
             <ul class="nav">
               <li><%= link_to "New Poll", new_poll_path  %></li>
@@ -54,16 +54,13 @@
       </div>
     </div>
 
-    <div class="container" style="margin-top:100px;">
+    <div class="container" style="margin-top:50px;">
         <div class="row">
           <div class="span9">
              <%= yield %>
           </div>
         </div><!--/row-->
 
-      <footer>
-        <p>&copy; Company 2012</p>
-      </footer>
 
     </div> <!-- /container -->
 
@@ -71,6 +68,10 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <%= javascript_include_tag "application" %>
+  <footer>
+      <p>&copy; DJ B-hott Production</p>
+  </footer>
 
   </body>
+
 </html>

@@ -1,8 +1,8 @@
 <h1><%= @poll.title%></h1>
+<% @poll.questions.each do |question| %>
 <p class = "lead">
-    <% @poll.questions.each do |question| %>
-      <%= question.description %>
-    <%end%>
-
-    <%= render 'answers/form' %>
+    <%@question = question %>
+    <%= @question.description %>
 </p>
+  <%= render 'answers/form' %>
+<%end%>
