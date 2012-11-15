@@ -2,7 +2,7 @@
 <% @poll.questions.each do |question| %>
 <p class = "lead">
     <% @question = question %>
-    <%= @question.description %>
+    <%= @question.description.gsub(/\n/, '<br/>').html_safe %>
 </p>
   <%= render 'answers/form' %>
 <%end%>
