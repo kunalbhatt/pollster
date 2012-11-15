@@ -29,7 +29,7 @@ class PollsController < ApplicationController
   def show
     @voted = cookies[:voted] 
     @poll = Poll.find_by_share_url(params[:id])
-    render :layout => 'show'
+    render :layout => 'show.html.erb'
   end
 
   def destroy

@@ -3,6 +3,8 @@
     <%= f.text_area :description, rows: 2, class: 'span8' %>
   </div>
   <div class="actions">
+    <%= f.radio_button(:format, "Multiple Choice")%> Multiple Choice
+    <%= f.radio_button(:format, "Open Ended")%>  Open Ended
     <%= f.submit  class: 'btn' %>
     <%= link_to 'Done Editing', polls_path, class: 'btn btn-primary'  %>
   </div>

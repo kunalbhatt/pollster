@@ -13,11 +13,10 @@ class AnswersController < ApplicationController
     # @poll = Poll.find(params[:poll_id])
     @question = Question.find(params[:question_id])
     @answer = @question.answers.build(params[:answer])
-    # cookies[:voted] = ""
-    if cookies[:voted].length >= 1
-      p cookies[:voted]
-    else 
+    if cookies[:voted] == nil 
       cookies[:voted] = ""
+    else cookies[:voted].length >= 1
+      p cookies[:voted]
     end
     if @answer.save
       x = cookies[:voted]
