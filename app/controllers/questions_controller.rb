@@ -1,7 +1,7 @@
 class QuestionsController < ApplicationController
 
   def create
-    @poll = Poll.find(params[:poll_id])
+    @poll = Poll.find_by_edit_url(params[:poll_id])
     # @poll = @poll.edit_url
     @question = @poll.questions.build(params[:question])
 
@@ -23,6 +23,8 @@ class QuestionsController < ApplicationController
   def update
      @question = Question.find(params[:id])
      @question.update_attributes(params[:question])
+     # render :empty => true, :status => :success
+     head :ok
   end
 
   def destroy

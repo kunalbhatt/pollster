@@ -27,12 +27,13 @@ class PollsController < ApplicationController
   end
 
   def show
+    @voted = cookies[:voted] 
     @poll = Poll.find_by_share_url(params[:id])
+    render :layout => 'show'
   end
 
   def destroy
     @poll.destroy
-
     redirect_to polls_url
   end
 
