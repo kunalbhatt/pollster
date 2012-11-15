@@ -1,7 +1,7 @@
 class CreateQuestions < ActiveRecord::Migration
   def change
     create_table :questions do |t|
-      t.string :description
+      t.text :description
       t.string :format
       t.references :poll
 
