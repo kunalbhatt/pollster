@@ -19,7 +19,7 @@
         <div class="well">
           <%= best_in_place question, :description, remote: :true %>
           
-          <%= link_to 'Destroy', question_path(question.id), class: 'btn btn-mini btn-primary', method: :delete, data: { confirm: 'Are you sure?'} %>
+          <%= link_to 'Destroy', poll_question_path(@poll.edit_url, question.id), class: 'btn btn-mini btn-primary', method: :delete, data: { confirm: 'Are you sure?'} %>
           <%= link_to 'Answers',  question_answers_path(question.id) + ".csv", class: 'btn btn-mini btn-primary'%>
         </div>  
         

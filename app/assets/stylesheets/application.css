@@ -11,10 +11,23 @@
  *= require_self
  *= require_tree .
  */
-#footer {
- clear: both;
- position: relative;
- z-index: 10;
- height: 3em;
- margin-top: -3em;
+footer {
+ border-top :1px solid black;
+ margin-top: -50px;
+ width: 100%;
+ margin-left: 20px;
+}
+
+.inside {
+  width: 600px;
+  margin: 0 auto;
+}
+
+body,html{
+ height:100%;
+ margin: 0 auto;
+}
+
+.container{
+ min-height:100%;
 }

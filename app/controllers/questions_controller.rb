@@ -1,35 +1,45 @@
 class QuestionsController < ApplicationController
+  before_filter :find_poll
 
   def create
-    @poll = Poll.find_by_edit_url(params[:poll_id])
-    # @poll = @poll.edit_url
-    @question = @poll.questions.build(params[:question])
+    @question = @poll.questions.new(params[:question])
 
-
-    # @question = Question.new(params[:question])
-    # @question.poll_id = params[:poll_id]
-    # @poll = @question.poll_id
-    # raise @poll.inspect
     if @question.save
       redirect_to edit_poll_path(@poll.edit_url)
+    else
+      render 'polls/edit'
     end
   end
 
   def edit
-    @question = Question.find(params[:id])
-    # @question.update_attributes(params[:question])
+    @question = @poll.questions.find(params[:id])
   end
 
   def update
-     @question = Question.find(params[:id])
-     @question.update_attributes(params[:question])
-     # render :empty => true, :status => :success
-     head :ok
+    @question = @poll.questions.find(params[:id])
+    @question.update_attributes(params[:question])
+    head :ok
+  end
+
+  def show
+    puts "hello"
   end
 
   def destroy
-    @question = Question.find(params[:id])
+    p @poll
+    @question = @poll.questions.find(params[:id])
     @question.destroy
     redirect_to(:back)
+  end
+
+  private
+
+  def find_poll
+    if params[:poll_id] =~ /^\d+$/
+      @poll = Poll.find(params[:poll_id])
+    else
+      @poll = Poll.find_by_edit_url(params[:poll_id])
+    end
+      p params[:poll_id]
   end
 end

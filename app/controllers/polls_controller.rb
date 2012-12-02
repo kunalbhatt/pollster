@@ -1,7 +1,5 @@
 class PollsController < ApplicationController
 
-  before_filter :find_poll, :except => :show
-
   def index
     @polls = Poll.all
   end
@@ -15,11 +13,12 @@ class PollsController < ApplicationController
 
   def new
     @poll = Poll.new
-    @poll.edit_url = params[:edit_url]
   end
 
   def edit 
-    # @poll = Poll.find_by_edit_url(params[:id])
+    @poll = Poll.find_by_edit_url(params[:id])
+    # if @poll.questions.new.nil?
+    # @question = @poll.questions.new
   end
 
   def update
@@ -27,22 +26,14 @@ class PollsController < ApplicationController
   end
 
   def show
-    @voted = cookies[:voted] 
     @poll = Poll.find_by_share_url(params[:id])
     render :layout => 'show.html.erb'
   end
 
   def destroy
+    @poll = Poll.find_by_edit_url(params[:id])
     @poll.destroy
     redirect_to polls_url
-  end
-
-
-
-private 
-
-  def find_poll
-    @poll = Poll.find_by_edit_url(params[:id])
   end
 
 end

@@ -32,6 +32,9 @@ end
 
 group :development, :test do
   gem "sqlite3-ruby", "~> 1.3.0", :require => "sqlite3"
+  gem 'rspec'
+  gem 'rspec-rails'
+  gem 'simplecov', :require => false
 end
 
 # To use ActiveModel has_secure_password

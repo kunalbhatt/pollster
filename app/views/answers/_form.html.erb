@@ -3,10 +3,10 @@
       <%= f.text_area :description, rows: 2, class: 'span8' %>
     </div>
     <div class="actions">
-      <% if @voted == nil %>
-      <%= f.submit class: 'btn' %>
-      <% else @voted.include? @question.id.to_s %>
-      You have now voted or already voted.
+      <% if already_answered(@question) %>
+        You have now voted or already voted.
+      <% else %>
+        <%= f.submit class: 'btn' %>
       <% end %>
     </div>
 <% end %>

@@ -1,10 +1,10 @@
 Pollster::Application.routes.draw do
-  resources :polls do 
+  resources :polls do
     resources :questions 
   end
 
-  resources :questions do 
-    resources :answers 
+  resources :questions, :only => [] do 
+    resources :answers
   end
 
 

@@ -1,8 +1,9 @@
 <h1><%= @poll.title%></h1>
 <% @poll.questions.each do |question| %>
+<% p question %>
 <p class = "lead">
     <% @question = question %>
     <%= @question.description.gsub(/\n/, '<br/>').html_safe %>
 </p>
-  <%= render 'answers/form' %>
+  <%= render 'answers/form'%>
 <%end%>
